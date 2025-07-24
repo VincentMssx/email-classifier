@@ -1,0 +1,5 @@
+artifacts_for_prediction/
+data/
+mlruns/
+venv/
+*/__pycache__/
