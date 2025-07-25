@@ -55,10 +55,7 @@ It is highly recommended to use a virtual environment to manage project dependen
 python -m venv venv
 
 # Activate the environment
-# On Windows
 venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
 ```
 
 **3. Install Dependencies**
