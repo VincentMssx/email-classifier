@@ -91,6 +91,14 @@ You can customize the training by providing different arguments:
 - `--hidden_dim`: Dimension of the hidden layers (e.g., `256`).
 - `--model_name`: Name for the registered model in MLflow (e.g., `"NewsFlow-Classifier"`).
 
+### Hyperparameter Tuning with Grid Search
+
+To perform a grid search for hyperparameter optimization, use the --grid_search flag:
+
+```bash
+python scripts/02_train.py --grid_search
+```
+
 ### Step 3: Explore Results in the MLflow UI
 
 To visualize your experiments, compare runs, and see the registered models, launch the MLflow UI.
@@ -101,7 +109,17 @@ mlflow ui
 ```
 Open your browser and navigate to `http://127.0.0.1:5000`.
 
-### Step 4: Make Predictions
+### Step 4: Promote the Best Model
+
+The 03_promote_model.py script promotes the top-performing model from the grid search to a "Staging" or "Production" alias in the MLflow Model Registry.
+
+```bash
+python scripts/03_promote_model.py --model_name <your_model_name> --stage <alias_name>
+```
+
+Replace <your_model_name> with your registered model's name and <alias_name> with the desired alias (e.g., "Staging", "Production").
+
+### Step 5: Make Predictions
 
 Once a model is trained and registered, you can use the prediction script to classify new text. This script fetches the model and its artifacts directly from the MLflow Model Registry.
 
